@@ -1,13 +1,3 @@
-import os
-import subprocess
-import sys
-import tkinter as tk
-from tkinter import filedialog, Label, Button, Canvas
-import cv2
-import numpy as np
-from model import Meso4
-from tkinter import messagebox
-
 # Install required modules
 def install_packages():
     required_packages = ["opencv-python", "numpy", "tensorflow"]
@@ -18,7 +8,15 @@ def install_packages():
             subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 install_packages()
-
+import os
+import subprocess
+import sys
+import tkinter as tk
+from tkinter import filedialog, Label, Button, Canvas
+import cv2
+import numpy as np
+from model import Meso4
+from tkinter import messagebox
 # Load the model
 model = Meso4()
 model.load_weights("Meso4_DF.h5")
