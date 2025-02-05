@@ -8,43 +8,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" href="/static/favicon.ico">
     <style>
+        /* General Styles */
         body {
-            background: #f0f4f8;
-            font-family: 'Roboto', sans-serif;
-            color: #333;
+            background: #0f0f1b;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
+
+        /* Navbar */
         .navbar {
-            background-color: #343a40;
+            background: linear-gradient(90deg, #1a1a2e, #16213e);
+            padding: 15px;
+            border-bottom: 2px solid #00bcd4; /* Clear border for navbar */
+            transition: all 0.3s ease-in-out;
         }
         .navbar a {
-            color: #fff !important;
-            font-weight: 500;
+            color: #00bcd4 !important;
+            font-weight: 600;
+            transition: color 0.3s ease-in-out;
         }
         .navbar a:hover {
-            color: #e52e71 !important;
+            color: #ffffff !important;
         }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00bcd4;
+        }
+
+        /* Container */
         .container {
             margin-top: 100px;
             padding: 40px;
-            background-color: #fff;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #1a1a2e;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             text-align: center;
             animation: slideIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
         }
         .container h1 {
             font-size: 2.8rem;
             font-weight: 700;
-            color: #4b0082;
+            color: #00bcd4;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 5px rgba(0, 188, 212, 0.3);
         }
+
+        /* Result Message */
         .result-message {
             font-size: 2rem;
             font-weight: 800;
@@ -52,82 +71,105 @@
             padding: 20px;
             margin: 30px auto;
             max-width: 600px;
-            border: 4px solid #e52e71;
+            border: 4px solid #00bcd4; /* Cyan border for result message */
             border-radius: 15px;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #222831, #16213e);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.2);
             text-transform: uppercase;
             letter-spacing: 1px;
             opacity: 0;
-            animation: fadeIn 1.5s forwards;
+            animation: fadeIn 1.5s forwards, glowEffect 2s infinite alternate;
         }
+
+        /* Custom Button */
         .btn-custom {
             font-size: 18px;
             padding: 12px 24px;
-            background-color: #4b0082;
-            color: #fff;
+            background: linear-gradient(90deg, #00bcd4, #008b8b);
+            color: #0f0f1b;
+            font-weight: 700;
             border: none;
             border-radius: 30px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
         .btn-custom:hover {
-            background-color: #e52e71;
+            background: linear-gradient(90deg, #ffffff, #00bcd4);
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
         }
-        .btn-custom:active {
-            transform: scale(1);
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
-        /* Keyframes for animations */
+        .particle {
+            position: absolute;
+            background: rgba(0, 188, 212, 0.7);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticles 6s linear infinite;
+        }
+
+        /* Keyframes */
         @keyframes slideIn {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
+        @keyframes glowEffect {
+            from { box-shadow: 0 0 10px rgba(0, 188, 212, 0.2); }
+            to { box-shadow: 0 0 25px rgba(0, 188, 212, 0.5); }
+        }
+        @keyframes floatParticles {
+            from { transform: translateY(0) scale(1); opacity: 1; }
+            to { transform: translateY(-300px) scale(1.5); opacity: 0; }
+        }
+
+        /* Footer */
         footer {
-            background-color: #343a40;
-            color: #fff;
+            background: #1a1a2e;
+            color: #00bcd4;
             padding: 20px 0;
             text-align: center;
+            border-top: 2px solid #00bcd4; /* Clear border for footer */
         }
         footer a {
-            color: #e52e71;
+            color: #00bcd4;
             text-decoration: none;
+            transition: color 0.3s ease-in-out;
         }
         footer a:hover {
             text-decoration: underline;
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Deepfake Detection</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -136,16 +178,9 @@
     <!-- Results Section -->
     <div class="container">
         <h1>Deepfake Detection Results</h1>
-        <div id="loading-spinner" style="display: none;">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p>Processing your video...</p>
-        </div>
+        <div class="particles"></div>
         <p class="result-message">{{ result_message }}</p>
-        <a href="/" class="btn-custom">
-            <i class="fas fa-arrow-left"></i> Back to Upload
-        </a>
+        <a href="/" class="btn-custom"><i class="fas fa-arrow-left"></i> Back to Upload</a>
     </div>
 
     <!-- Footer -->
@@ -155,24 +190,16 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        const form = document.querySelector('form');
-        const spinner = document.getElementById('loading-spinner');
-        const resultMessage = document.querySelector('.result-message');
-        
-        form?.addEventListener('submit', () => {
-            spinner.style.display = 'block';
-            resultMessage.style.display = 'none';
-        });
-
-        // Display the result message with fade-in effect once the process is completed
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                spinner.style.display = 'none';
-                resultMessage.style.display = 'block';
-            }, 2000); // Simulate loading time
-        });
+        // Generate floating particles
+        const particlesContainer = document.querySelector(".particles");
+        for (let i = 0; i < 30; i++) {
+            let particle = document.createElement("div");
+            particle.className = "particle";
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            particlesContainer.appendChild(particle);
+        }
     </script>
 
 </body>
