@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection Results | Secure & Accurate</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="/static/favicon.ico">
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar a {
+            color: #fff !important;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #e52e71 !important;
+        }
+        .container {
+            margin-top: 100px;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+        .container h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #4b0082;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .result-message {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 4px solid #e52e71;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        .btn-custom {
+            font-size: 18px;
+            padding: 12px 24px;
+            background-color: #4b0082;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #e52e71;
+            transform: scale(1.05);
+        }
+        .btn-custom:active {
+            transform: scale(1);
+        }
+        /* Keyframes for animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #e52e71;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Deepfake Detection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Section -->
+    <div class="container">
+        <h1>Deepfake Detection Results</h1>
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Processing your video...</p>
+        </div>
+        <p class="result-message">{{ result_message }}</p>
+        <a href="/" class="btn-custom">
+            <i class="fas fa-arrow-left"></i> Back to Upload
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Deepfake Detection. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const form = document.querySelector('form');
+        const spinner = document.getElementById('loading-spinner');
+        const resultMessage = document.querySelector('.result-message');
+        
+        form?.addEventListener('submit', () => {
+            spinner.style.display = 'block';
+            resultMessage.style.display = 'none';
+        });
+
+        // Display the result message with fade-in effect once the process is completed
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                resultMessage.style.display = 'block';
+            }, 2000); // Simulate loading time
+        });
+    </script>
+
+</body>
+</html>

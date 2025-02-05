@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection | Secure & Reliable</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="/static/favicon.ico">
+    <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar a {
+            color: #fff !important;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #e52e71 !important;
+        }
+        .hero {
+            background: linear-gradient(45deg, #ff8a00, #e52e71);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 60px;
+            border-bottom: 6px solid #fff;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container {
+            margin-top: -50px;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+        .container img {
+            max-width: 150px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: bounce 1.5s infinite;
+        }
+        .btn-custom {
+            font-size: 18px;
+            padding: 12px 24px;
+            background-color: #e52e71;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #ff8a00;
+            transform: scale(1.05);
+        }
+        .btn-custom:active {
+            transform: scale(1);
+        }
+        /* Keyframes for animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #e52e71;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Deepfake Detection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Deepfake Detection Made Simple</h1>
+        <p>Upload your video files securely and easily to detect deepfake content. Trust our advanced AI for accurate results.</p>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="container">
+        <img src="/static/logo.png" alt="Logo">
+        <h2>Upload Your Video</h2>
+        <p>Submit your video to quickly check for deepfake content. Our advanced algorithm processes your file with high accuracy.</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input class="form-control" type="file" name="file" id="file" required>
+            </div>
+            <button type="submit" class="btn-custom">
+                <i class="fas fa-upload"></i> Upload
+            </button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Deepfake Detection. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
