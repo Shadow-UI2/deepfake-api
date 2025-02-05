@@ -6,6 +6,7 @@ def install_packages():
             __import__(package.split('-')[0])
         except ImportError:
             subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+install_packages()
 import os
 import subprocess
 import sys
@@ -16,9 +17,7 @@ import numpy as np
 from model import Meso4
 from tkinter import messagebox
 
-install_packages()
 
-# Load the model
 model = Meso4()
 model.load_weights("Meso4_DF.h5")
 
@@ -85,22 +84,22 @@ def on_hover(event):
 def on_leave(event):
     event.widget.config(bg="#2980b9", fg="white")
 
-# Create the GUI application
+
 root = tk.Tk()
 root.title("Deepfake Detection App")
 root.geometry("700x600")
-root.configure(bg="#2c3e50")  # Darker background for better contrast
+root.configure(bg="#2c3e50") 
 
-# Add a canvas for graphics
+
 canvas = Canvas(root, width=700, height=250, bg="#2c3e50", highlightthickness=0)
 canvas.pack()
 
-# Draw decorative elements with contrasting colors
+
 canvas.create_rectangle(10, 10, 690, 240, outline="#16a085", width=6, fill="#34495e")
 canvas.create_text(350, 70, text="Deepfake Detection App", font=("Helvetica", 32, "bold"), fill="#ecf0f1")
 canvas.create_text(350, 140, text="Select a video file to analyze deepfakes", font=("Helvetica", 16), fill="#1abc9c")
 
-# Add widgets (with improved style)
+
 select_button = Button(root, text="Select Video", font=("Helvetica", 18, "bold"), bg="#2980b9", fg="white", command=open_file, relief="raised", padx=15, pady=10, bd=3)
 select_button.bind("<Enter>", on_hover)
 select_button.bind("<Leave>", on_leave)
@@ -112,9 +111,9 @@ result_frame.pack(pady=40)
 result_label = Label(result_frame, text="Awaiting Video...", font=("Helvetica", 18, "italic"), bg="#34495e", fg="#e74c3c")
 result_label.pack()
 
-# Add footer with contrasting style
+
 footer_label = Label(root, text="Developed by Soul Society", font=("Helvetica", 14), bg="#2c3e50", fg="#2980b9")
 footer_label.pack(side="bottom", pady=15)
 
-# Run the app
+
 root.mainloop()
