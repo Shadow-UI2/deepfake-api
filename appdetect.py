@@ -1,4 +1,4 @@
-# Install required modules
+
 def install_packages():
     required_packages = ["opencv-python", "numpy", "tensorflow"]
     for package in required_packages:
